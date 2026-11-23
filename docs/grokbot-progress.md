@@ -196,3 +196,50 @@ The workflow file uses `contents: read`, pins `actions/checkout` to `3d3c42e5aac
 **Open issues:** GitHub Actions has not run yet. That is the P07 gate.
 
 **Next phase:** P07
+
+## P07 — Publish and verify on GitHub
+
+**Phase and status:** PASS
+
+**Files changed:**
+
+- Annotated tag `v0.1.0` on `746e0fe7e23acc91651201c9ab5ad74ab3bdc7b8`
+- `docs/grokbot-progress.md` (this record, committed after the tag)
+
+**Commands and results:**
+
+GitHub Actions run https://github.com/Harry0052/machinesight/actions/runs/45112128873 completed with conclusion `success` on pull request head `746e0fe7e23acc91651201c9ab5ad74ab3bdc7b8`. `gh pr checks 1` reported:
+
+- `gcc-debug` pass
+- `clang-release` pass
+- `gcc-sanitize` pass
+- `gcc-clang-identical` pass
+
+```text
+git tag -a v0.1.0 746e0fe7e23acc91651201c9ab5ad74ab3bdc7b8 -m "MachineSight 0.1.0"
+git push origin v0.1.0
+git ls-remote --tags origin 'refs/tags/v0.1.0*'
+```
+
+The remote tag object is `3986a8676b4d98d44da4c82e881b54d97c6ab50b`. It points at `746e0fe7e23acc91651201c9ab5ad74ab3bdc7b8`.
+
+A fresh clone of the public tag was built and run:
+
+```text
+git clone --branch v0.1.0 --depth 1 https://github.com/Harry0052/machinesight.git
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+./build/machinesight demo --output out/demo
+```
+
+The checkout was `746e0fe7e23acc91651201c9ab5ad74ab3bdc7b8`. Standard output contained `valid_pair_coverage=8/13` and `disagreement_intervals=3`, and it matched `fixtures/demo/expected_summary.txt`. The repository is public, the MIT `LICENSE` file is in the tagged tree, and pull request https://github.com/Harry0052/machinesight/pull/1 was not merged.
+
+**Artifact paths:**
+
+- Tag `v0.1.0`
+- CI run https://github.com/Harry0052/machinesight/actions/runs/45112128873
+- Pull request https://github.com/Harry0052/machinesight/pull/1
+
+**Open issues:** None. The owner merges the pull request.
+
+**Next phase:** None. This is the last phase.
