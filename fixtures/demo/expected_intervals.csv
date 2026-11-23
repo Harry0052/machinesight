@@ -1,0 +1,4 @@
+interval_id,samples,start_machine_line,end_machine_line,start_reference_line,end_reference_line,start_elapsed_ms,end_elapsed_ms,min_abs_delta_rpm,max_abs_delta_rpm
+1,3,6,8,5,7,5000,7000,120.000,120.000
+2,1,13,13,12,12,16000,16000,120.000,120.000
+3,1,15,15,13,13,18000,18000,120.000,120.000

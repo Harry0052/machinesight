@@ -1,0 +1,47 @@
+MachineSight RPM comparison
+machinesight_version=0.1.0
+report_schema=1
+schema_version=1
+calibration_status=synthetic-teaching-fixture
+time_base=elapsed_ms
+clock_alignment_provenance=fixture-declared-zero-offset
+machine_source_id=legacy-bench-demo
+reference_source_id=ref-tach-demo
+units=elapsed_milliseconds,revolutions_per_minute
+comparison_tolerance_rpm=25.000
+reference_uncertainty_rpm=5.000
+threshold_rpm=30.000
+allowed_skew_ms=100
+validated_time_offset_ms=0
+sampling_interval_ms=1000
+max_reference_rate_rpm_per_s=50.000
+tie_resolution=nearest_unused_reference_equidistant_earlier_elapsed_then_lower_line_machine_time_order
+steady_rule=adjacent_reference_samples_inside_the_sampling_window_above_max_rate_are_unqualified
+limitation=Comparable steady-state disagreements only. Disagreement is not an equipment condition, a safe-to-operate decision, or a shutdown instruction. Missing, dynamic, and unsynchronized spans stay unverified.
+ok_machine_rows=13
+ok_reference_rows=13
+invalid_machine_rows=1
+invalid_reference_rows=0
+missing_machine_rows=1
+missing_reference_rows=0
+matched_pairs=12
+valid_steady_pairs=8
+agree_pairs=3
+disagree_samples=5
+dynamic_unqualified_machine=4
+unmatched_machine=1
+unmatched_reference=1
+valid_pair_coverage=8/13
+valid_pair_coverage_decimal=0.6153
+disagreement_intervals=3
+interval=1 samples=3 machine_lines=6-8 reference_lines=5-7 elapsed_ms=5000-7000 min_abs_delta_rpm=120.000 max_abs_delta_rpm=120.000
+interval=2 samples=1 machine_lines=13-13 reference_lines=12-12 elapsed_ms=16000-16000 min_abs_delta_rpm=120.000 max_abs_delta_rpm=120.000
+interval=3 samples=1 machine_lines=15-15 reference_lines=13-13 elapsed_ms=18000-18000 min_abs_delta_rpm=120.000 max_abs_delta_rpm=120.000
+unverified machine_line=5 reference_line= reason=invalid_machine elapsed_ms=3000
+unverified machine_line=9 reference_line=8 reason=dynamic_unqualified elapsed_ms=10000
+unverified machine_line=10 reference_line=9 reason=dynamic_unqualified elapsed_ms=11000
+unverified machine_line=11 reference_line=10 reason=dynamic_unqualified elapsed_ms=12000
+unverified machine_line=12 reference_line=11 reason=dynamic_unqualified elapsed_ms=13000
+unverified machine_line=14 reference_line= reason=unmatched_machine elapsed_ms=17000
+unverified machine_line=16 reference_line= reason=missing_machine elapsed_ms=20000
+unverified machine_line= reference_line=14 reason=unmatched_reference elapsed_ms=21000
